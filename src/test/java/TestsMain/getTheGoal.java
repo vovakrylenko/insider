@@ -41,16 +41,25 @@ public class getTheGoal extends BaseTest {
         careerPage.selectJobsByPosition();
         careerPage.chooseAnyPositionByUrl();
 
+        //----------checkingDataFromQAPage-----------//
+
+        qaPage = new QAPage();
+        qaPage.checkingJobDescriptionAndRequirements();
+        qaPage.checkButtonsOnPage();
+
+        //------------checkingDataFromApplyPage-------//
+
+        applyFormPage = new ApplyFormPage();
+        applyFormPage.checkingApplicationForm();
+
     }
 
+/*
     @Test
     public void checkingDataFromQAPage() {
 
         //Driver.get().get("https://jobs.lever.co/useinsider/0e39c3f1-0dde-455f-8b15-3f68bbce5a0e");
 
-        qaPage = new QAPage();
-        qaPage.checkingJobDescriptionAndRequirements();
-        qaPage.checkButtonsOnPage();
 
     }
 
@@ -59,10 +68,9 @@ public class getTheGoal extends BaseTest {
 
         //Driver.get().get("https://jobs.lever.co/useinsider/0e39c3f1-0dde-455f-8b15-3f68bbce5a0e/apply");
 
-        applyFormPage = new ApplyFormPage();
-        applyFormPage.checkingApplicationForm();
 
     }
+*/
 
 
 }

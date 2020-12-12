@@ -31,12 +31,11 @@ public class QAPage extends BasePage {
 
     public void checkingJobDescriptionAndRequirements() {
 
-        Assert.assertTrue(isElementsPresent(By.cssSelector(".section.page-centered"), 1));
+        Assert.assertTrue(isElementsPresent(By.cssSelector(".section.page-centered"), 10));
 
     }
 
     public void checkButtonsOnPage() {
-
 
         Assert.assertTrue(isElementsPresent(By.cssSelector(".postings-btn.template-btn-submit.shamrock"), 1));
         clickJS(btnApply);
