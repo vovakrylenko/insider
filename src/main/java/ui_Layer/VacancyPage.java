@@ -13,29 +13,22 @@ import java.util.Random;
 
 import static core.Utils.*;
 
-public class QAPage extends BasePage {
+public class VacancyPage extends BasePage {
 
-    @FindBy(css = ".main-footer-text.page-centered .image-link")
-    private WebElement linkInBottom;
 
     @FindBy(css = ".section.page-centered.last-section-apply[data-qa=\"btn-apply-bottom\"] >a")
     private WebElement btnApply;
-
-    @FindBy(css = ".postings-btn.template-btn-submit.shamrock")
-    List<WebElement> allButtonsList;
-
-    CareerPage careerPage;
 
 
     private WebDriverWait wait = new WebDriverWait(Driver.get(), 20);
 
     public void checkingJobDescriptionAndRequirements() {
 
-        Assert.assertTrue(isElementsPresent(By.cssSelector(".section.page-centered"), 10));
+        Assert.assertTrue(isElementsPresent(By.cssSelector(".section.page-centered"), 2000));
 
     }
 
-    public void checkButtonsOnPage() {
+    public void checkButtonsOnPageAndClick() {
 
         Assert.assertTrue(isElementsPresent(By.cssSelector(".postings-btn.template-btn-submit.shamrock"), 1));
         clickJS(btnApply);

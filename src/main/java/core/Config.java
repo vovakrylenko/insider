@@ -33,7 +33,6 @@ public class Config {
     public static String getBaseURL() {
         return getProperty("test.baseURL");
 
-        //return System.getProperty("test.baseURL");
     }
 
 

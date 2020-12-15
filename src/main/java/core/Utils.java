@@ -21,11 +21,7 @@ public class Utils {
     }
 
     public static void clickJS(WebElement someButton) {
-        //if (Config.getProperty("test.browser").equals("iexplore")) {
         ((JavascriptExecutor) Driver.get()).executeScript("arguments[0].click();", someButton);
-        //} else {
-        //     someButton.click();
-        //}
     }
 
     public static boolean isElementsPresent(By locator, int timeout) {

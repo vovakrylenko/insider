@@ -6,17 +6,14 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 
-import java.io.IOException;
-
 import static core.Utils.waitSleep;
 
 @Listeners(ScreenshotListener.class)
 public class BaseTest {
-    private Utils utils;
-    private Config config;
 
     @BeforeSuite
     public void init() {
+
         Driver.init();
 
     }
@@ -35,6 +32,7 @@ public class BaseTest {
     public void cleanup() {
 
         Driver.tearDown();
+
     }
 
 

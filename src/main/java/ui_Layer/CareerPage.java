@@ -8,51 +8,39 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import static core.Utils.*;
 
 public class CareerPage extends BasePage {
 
     @FindBy(css = ".wpb_wrapper .grid-container")
-    private WebElement cultureBlock;
-
-    @FindBy(css = ".row-bg-wrap.instance-7 .row-bg")
-    private WebElement locationBlock;
+    private WebElement checkBlockList;
 
     @FindBy(css = ".filter-by-location .jobs-locations")
     private WebElement filterDrpdw;
 
-    @FindBy(css = ".filter-by-jobs .jobs-teams")
+    @FindBy(css = "#jobs-container .jobs-teams")
     private WebElement jobsDrpdw;
-
-    @FindBy(css = "#jobs-container")
-    private WebElement jobsContainer;
-
-    @FindBy(css = ".wpb_wrapper .col-sm-6 .careerLocations")
-    List<WebElement> listLocationBlock;
-
-    @FindBy(css = ".filter-by-location .jobs-locations")
-    List<WebElement> cssContainer;
 
     @FindBy(css = ".jobs-list a[data-team=\"QualityAssurance\"]")
     List<WebElement> cssForPositionList;
 
-    @FindBy(css = "#jobs-container [href*=\"0\"]")
-    List<WebElement> linksInPosition;
+    String qualityAssurance = "Quality Assurance";
+    String location = "Istanbul, Turkey";
+    String expectedMessageForContainer = "Container not visible";
+    String elVisibility = "Elements not visible on page";
 
     private WebDriverWait wait = new WebDriverWait(Driver.get(), 10);
 
     public void checkBLocksIsAvailable() {
 
-        wait.until(ExpectedConditions.visibilityOf(cultureBlock));
-        Assert.assertTrue("Container not visible", isElementsPresent(By.cssSelector(".wpb_wrapper .grid-container >div"), 2));
-        Assert.assertTrue("Container not visible", isElementsPresent(By.cssSelector(".wpb_wrapper .col-sm-6 .careerLocations"), 2));
-        Assert.assertTrue("Container not visible", isElementsPresent(By.cssSelector("a.column-link"), 2));
-        Assert.assertTrue("Container not visible", isElementsPresent(By.cssSelector("#jobs-container .jobs-list >a"), 2));
-        Assert.assertTrue("Container not visible", isElementsPresent(By.cssSelector("#sbi_images .sbi_photo_wrap"), 2));
+        wait.until(ExpectedConditions.visibilityOf(checkBlockList));
+        //Checking Culture, Locations, Teams, Jobs and Life at Insider blocks
+        Assert.assertTrue(expectedMessageForContainer, isElementsPresent(By.cssSelector("#culture .grid-container >div"), 2));
+        Assert.assertTrue(expectedMessageForContainer, isElementsPresent(By.cssSelector(".wpb_wrapper .col-sm-6 .careerLocations"), 2));
+        Assert.assertTrue(expectedMessageForContainer, isElementsPresent(By.cssSelector(".container.main-content a.column-link"), 2));
+        Assert.assertTrue(expectedMessageForContainer, isElementsPresent(By.cssSelector("#jobs-container .jobs-list >a"), 2));
+        Assert.assertTrue(expectedMessageForContainer, isElementsPresent(By.cssSelector("#sbi_images .sbi_photo_wrap"), 2));
     }
 
     public void selectJobs() {
@@ -60,7 +48,7 @@ public class CareerPage extends BasePage {
         Select chooseFromDropDown = new Select(filterDrpdw);
         chooseFromDropDown.selectByIndex(2);
         chooseFromDropDown = new Select(jobsDrpdw);
-        chooseFromDropDown.selectByVisibleText("Quality Assurance");
+        chooseFromDropDown.selectByVisibleText(qualityAssurance);
         waitSleep(1000);
 
     }
@@ -68,23 +56,20 @@ public class CareerPage extends BasePage {
     public void selectJobsByPosition() {
 
         for (WebElement item : cssForPositionList) {
-            if (item.getText().contains("Quality Assurance")) {
+            if (item.getText().contains(qualityAssurance)) {
                 List<WebElement> childList = item.findElements(By.xpath("./child::*"));
                 WebElement jobTitle = childList.get(0);
-                if (jobTitle.getText().contains("Quality Assurance")) {
-                    WebElement jobDepartment = childList.get(1);
-                    if (jobDepartment.getText().contains("Quality Assurance")) {
-                        WebElement jobLocation = childList.get(2);
-                        if (jobLocation.getText().contains("Istanbul, Turkey")) {
-                            System.out.println();
-                        }
-                    }
-                }
-            } else {
-                System.out.println("Something went wrong");
+                WebElement jobDepartment = childList.get(1);
+                WebElement jobLocation = childList.get(2);
+                if (jobTitle.getText().contains(qualityAssurance))
+                    Assert.assertTrue(elVisibility, jobTitle.isDisplayed());
+                if (jobDepartment.getText().contains(qualityAssurance))
+                    Assert.assertTrue(elVisibility, jobDepartment.isDisplayed());
+                if (jobLocation.getText().contains(location))
+                    Assert.assertTrue(elVisibility, jobLocation.isDisplayed());
+
             }
         }
-
     }
 
     public void chooseAnyPositionByUrl() {
@@ -92,9 +77,9 @@ public class CareerPage extends BasePage {
         cssForPositionList.get(0).click();
         //check the correct position opened by URL
         checkUrl(linkToJob);
-        waitSleep(5000);
-    }
+        waitSleep(3000);
 
+    }
 
 }
 

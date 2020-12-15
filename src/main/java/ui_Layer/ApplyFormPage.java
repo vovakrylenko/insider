@@ -12,17 +12,15 @@ public class ApplyFormPage extends BasePage {
     @FindBy(css = ".section.page-centered.application-form >h4")
     List<WebElement> applyTitleList;
 
-    @FindBy(css = ".section.page-centered.application-form >*")
-    List<WebElement> allElementsInFormList;
-
+    String errorMessage = "Text is not as expected";
 
     public void checkingApplicationForm() {
 
-        isElementsPresent(By.cssSelector(".section.page-centered.application-form >*"), 1);
+        isElementsPresent(By.cssSelector(".section.page-centered.application-form >*"), 5);
 
         for (WebElement checkTitle : applyTitleList) {
             if (checkTitle.getText().contains("SUBMIT YOUR APPLICATION")) {
-                Assert.assertEquals("Error message", "SUBMIT YOUR APPLICATION", checkTitle.getText());
+                Assert.assertEquals(errorMessage, "SUBMIT YOUR APPLICATION", checkTitle.getText());
             }
         }
     }
