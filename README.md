@@ -82,10 +82,10 @@ After all apps was succesfully configured. We can start working with framework.
 Before working with k6 we need to start Docker.
 #### Executing load testing from PowerShell
    1. Open PowerShell from progect root
-   2. Navigate to k6performanceTests.js location
-   3. Execute k6performanceTests.js:
+   2. Navigate to k6performanceTesting.js location
+   3. Execute k6performanceTesting.js:
 ```
 cat k6performanceTests.js | docker run -i loadimpact/k6 run -
-save reports
-cat ./src/test/java/LoadTesting/k6performanceTests.js  | docker run -i loadimpact/k6 run - > ./reports/log.txt
+for saving reports
+cat ./src/test/java/LoadTesting/k6performanceTesting.js  | docker run -i loadimpact/k6 run - > ./reports/log.txt
 ```
