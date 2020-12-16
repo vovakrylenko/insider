@@ -23,6 +23,7 @@ public class Driver {
         WebDriver driverInput;
         switch (Config.getProperty("test.browser")) {
             case "firefox":
+                System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\driver\\geckodriver.exe");
                 driverInput = new FirefoxDriver();
                 break;
             case "chrome":

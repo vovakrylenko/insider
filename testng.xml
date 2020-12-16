@@ -3,8 +3,8 @@
 <suite verbose="0" name="Realize.insider" parallel="false">
     <test name="Fast_Suite">
         <classes>
-            <class name="Tests.CheckingJobs.TC001"/>
+            <class name="Tests.UI_Tests.TC001"/>
+            <class name="Tests.API.TC_Requests"/>
         </classes>
     </test>
 </suite>
-

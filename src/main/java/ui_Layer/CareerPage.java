@@ -35,7 +35,6 @@ public class CareerPage extends BasePage {
     public void checkBLocksIsAvailable() {
 
         wait.until(ExpectedConditions.visibilityOf(checkBlockList));
-        //Checking Culture, Locations, Teams, Jobs and Life at Insider blocks
         Assert.assertTrue(expectedMessageForContainer, isElementsPresent(By.cssSelector("#culture .grid-container >div"), 2));
         Assert.assertTrue(expectedMessageForContainer, isElementsPresent(By.cssSelector(".wpb_wrapper .col-sm-6 .careerLocations"), 2));
         Assert.assertTrue(expectedMessageForContainer, isElementsPresent(By.cssSelector(".container.main-content a.column-link"), 2));
@@ -80,7 +79,6 @@ public class CareerPage extends BasePage {
         waitSleep(3000);
 
     }
-
 }
 
 

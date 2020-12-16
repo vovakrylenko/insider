@@ -4,13 +4,8 @@ import core.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
-import java.util.List;
-import java.util.Random;
-
 import static core.Utils.*;
 
 public class VacancyPage extends BasePage {

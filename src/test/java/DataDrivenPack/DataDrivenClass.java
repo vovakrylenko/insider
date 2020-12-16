@@ -22,6 +22,13 @@ public class DataDrivenClass {
         return data.iterator();
     }
 
+    @DataProvider(name = "requests_API", parallel = false)
+    public static Iterator<Object[]> requests() {
+        List<Object[]> data = new ArrayList<Object[]>();
+        data.add(new Object[]{});
+        return data.iterator();
+    }
+
 }
 
 

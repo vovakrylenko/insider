@@ -1,4 +1,4 @@
-package Tests.CheckingJobs;
+package Tests.UI_Tests;
 
 import DataDrivenPack.DataDrivenClass;
 import core.BaseTest;
