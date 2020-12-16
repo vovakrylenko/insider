@@ -48,7 +48,7 @@ public class CareerPage extends BasePage {
         chooseFromDropDown.selectByIndex(2);
         chooseFromDropDown = new Select(jobsDrpdw);
         chooseFromDropDown.selectByVisibleText(qualityAssurance);
-        waitSleep(1000);
+        waitSleep(200);
 
     }
 
@@ -76,7 +76,7 @@ public class CareerPage extends BasePage {
         cssForPositionList.get(0).click();
         //check the correct position opened by URL
         checkUrl(linkToJob);
-        waitSleep(3000);
+        waitSleep(500);
 
     }
 }

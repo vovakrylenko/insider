@@ -3,7 +3,6 @@ package core;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestResult;
-import org.testng.Reporter;
 import org.testng.TestListenerAdapter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -32,8 +31,6 @@ public class ScreenshotListener extends TestListenerAdapter {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Written screenshot to: D:\\insider\\screenshots\\" + filename);
-        Reporter.log("Written screenshot to: <a target=\"_blank\" href=\"D:\\insider\\screenshots\\" + filename + "\">click to see this screenshot</a>");
 
     }
 

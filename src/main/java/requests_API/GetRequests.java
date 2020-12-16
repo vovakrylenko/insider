@@ -15,7 +15,7 @@ public class GetRequests {
     String urlUser = "https://petstore.swagger.io/v2/user/Tommy";
     String urlUserLoginPass = "https://petstore.swagger.io/v2/user/login?username=tommy&password=test";
     String urlUserLogOut = "https://petstore.swagger.io/v2/user/logout";
-    String urlOrderID = "https://petstore.swagger.io/v2/store/order/8";
+    String urlOrderID = "https://petstore.swagger.io/v2/store/order/90";
 
 
     public static int executeGetRequest(String urlGiven)
@@ -33,7 +33,7 @@ public class GetRequests {
 
         assertThat(executeGetRequest(urlInventory),equalTo(HttpStatus.SC_OK));
         assertThat(executeGetRequest(urlUser),equalTo(HttpStatus.SC_OK));
-        assertThat(executeGetRequest(urlOrderID),equalTo(HttpStatus.SC_OK));
+        assertThat(executeGetRequest(urlOrderID),equalTo(HttpStatus.SC_NOT_FOUND));
         assertThat(executeGetRequest(urlUserLoginPass),equalTo(HttpStatus.SC_OK));
         assertThat(executeGetRequest(urlUserLogOut),equalTo(HttpStatus.SC_OK));
 
