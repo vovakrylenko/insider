@@ -3,6 +3,7 @@ package ui_Layer;
 import core.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -44,11 +45,14 @@ public class CareerPage extends BasePage {
 
     public void selectJobs() {
 
-        Select chooseFromDropDown = new Select(filterDrpdw);
-        chooseFromDropDown.selectByIndex(2);
-        chooseFromDropDown = new Select(jobsDrpdw);
-        chooseFromDropDown.selectByVisibleText(qualityAssurance);
-        waitSleep(200);
+        wait.until(ExpectedConditions.visibilityOf(filterDrpdw));
+        ((JavascriptExecutor) Driver.get()).executeScript("arguments[0].scrollIntoView(true);", filterDrpdw);
+        waitSleep(1000);
+
+        Select selectFromDropDown = new Select(filterDrpdw);
+        selectFromDropDown.selectByVisibleText(location);
+        selectFromDropDown = new Select(jobsDrpdw);
+        selectFromDropDown.selectByVisibleText(qualityAssurance);
 
     }
 
