@@ -36,7 +36,7 @@ Main strucure
 ├── src                     # Source files
 ├── test                    # Automated tests
 ├── testng.xml              # File for tests execution
-├── pom.xml					        # Dependency and plugins
+├── pom.xml                 # Dependency and plugins
 └── README.md
 
 ```
@@ -47,7 +47,7 @@ Java files location
 /src/
 ├── ...
 ├── main                    
-│   ├── core          		  # Configurations, utilities, etc.
+│   ├── core                # Configurations, utilities, etc.
 │   ├── requests_API        # Code for API tests
 │   └── ui_Layer            # Code for IU tests
 │                   
@@ -62,7 +62,7 @@ Test files location
 ├── test                    
 │   ├── DataDriven          # Data-Driven providers
 │   ├── LoadTesting         # Load and stress tests
-│   └── Tests            	  # Test files (IU and API)
+│   └── Tests               # Test files (IU and API)
 │       ├── UI_Tests        # UI tests for Selenium
 │       └── API             # API tests
 └── ...
